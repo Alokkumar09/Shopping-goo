@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route,Routes } from 'react-router-dom'
+import Home from "./pages/home/Home";
+import Order from "./pages/order/Order";
+import Cart from "./pages/cart/Cart";
+import Nopage from "./pages/nopage/Nopage";
+import Dashboard from "./pages/admin/dashboard/Dashboard";
+import MyState from './context/data/MyState';
+import Login from './pages/registration/Login';
+import Signup from './pages/registration/Signup';
+import ProductInfo from './pages/productInfo/ProductInfo';
+import AddProduct from './pages/admin/pages/AddProduct';
+import UpdateProduct from './pages/admin/pages/UpdateProduct';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <MyState>
+      <Routes>
+        
+        <Route path='/' element={<Home/>} />
+        <Route path="/order" element={<Order/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/productInfo/:id' element={<ProductInfo/>} />
+        <Route path='/addproduct' element={<AddProduct/>}/>
+        <Route path='/updateproduct' element={<UpdateProduct/>}/>
+        <Route path="/*" element={<Nopage/>} />
+      </Routes>
+      </MyState>
+    
+  )
 }
 
-export default App;
+export default App
