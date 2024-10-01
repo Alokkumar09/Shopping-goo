@@ -11,10 +11,12 @@ import Signup from './pages/registration/Signup';
 import ProductInfo from './pages/productInfo/ProductInfo';
 import AddProduct from './pages/admin/pages/AddProduct';
 import UpdateProduct from './pages/admin/pages/UpdateProduct';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const App = () => {
   return (
     <MyState>
+      <Router>
       <Routes>
         
         <Route path='/' element={<Home/>} />
@@ -28,6 +30,7 @@ const App = () => {
         <Route path='/updateproduct' element={<UpdateProduct/>}/>
         <Route path="/*" element={<Nopage/>} />
       </Routes>
+      </Router>
       </MyState>
     
   )
